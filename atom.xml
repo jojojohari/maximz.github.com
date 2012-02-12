@@ -4,7 +4,7 @@
   <title><![CDATA[Maxim Zaslavsky - Blog]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-02-11T22:11:43-08:00</updated>
+  <updated>2012-02-12T01:30:04-08:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Recovering from SugarSync merge failures over source control repositories]]></title>
+    <link href="http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/"/>
+    <updated>2012-02-12T01:11:00-08:00</updated>
+    <id>http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories</id>
+    <content type="html"><![CDATA[<h2>Intro to SugarSync (SS)</h2>
+
+<p>Ever since I started using <strong><a href="http://sugarsync.com">SugarSync</a></strong>, I&#8217;ve loved the app. Until now, it&#8217;s proven to be easy to use and abnormally straightforward.</p>
+
+<p>However, this weekend, SugarSync Manager decided to start crashing upon each load, making it completely unusable. I ordinarilly would have attempted to find and fix the cause of these crashes, but since the app was due for an update anyway, as I had neglected to run SugarSync (and sync latest changes) for a while, I decided to reinstall the Manager completely.</p>
+
+<h2>Problem</h2>
+
+<p>That turned out to be a bad decision. For some reason, I wasn&#8217;t able to explain to SugarSync that the original device that had synced to my account is the same as the current device, so it treats them as different entities with the same device name. Instead, I decided to try SugarSync&#8217;s <em>merge</em> functionality - as the people at SS explain it, it looks for differences between the older (in this case) version synced and the newer (in this case) version available on the current device.</p>
+
+<p>I did not expect this to be a problem, but SugarSync decided to start merging within the <code>.hg</code> and <code>.git</code> directories of my hg and git repositories. Thus, old dirstates and other key files were transformed to the version they had been at an earlier time.</p>
+
+<h2>Solution</h2>
+
+<p>My folder structure looked someting like this for &#8220;infected&#8221; files:</p>
+
+<ul>
+<li><code>_Handwriting (from Maxim-laptop).i</code> // this is the newest one</li>
+<li><code>_Handwriting.i</code> // this is the older one, but takes the place of the latest one.</li>
+</ul>
+
+
+<p>After countless bouts with HG in order to fix this via the HG tools, I decided to instead <strong><a href="https://github.com/maximz/sugarsyncfilefix">write a simple program</a></strong> that renames files in order to enable this to work.</p>
+
+<p>File changes:
+1. <pre><em>Handwriting.i</pre> > </em>Handwriting (from Maximlaptop).i</p>
+
+<p>If you run into this problem and just want a binary, here is the <a href="https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe">Windows, .NET 4 binary</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Test post!]]></title>
