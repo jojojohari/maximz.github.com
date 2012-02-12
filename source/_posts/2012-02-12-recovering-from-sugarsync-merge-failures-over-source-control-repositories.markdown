@@ -31,6 +31,8 @@ My folder structure looked someting like this for "infected" files:
 After countless bouts with HG in order to fix this via the HG tools, I decided to instead **[write a simple program](https://github.com/maximz/sugarsyncfilefix)** that renames files in order to enable this to work.
 
 File changes:
-1. <pre>_Handwriting.i</pre> > _Handwriting (from Maximlaptop).i
+
+1. `_Handwriting.i` --> `_Handwriting.i.old`
+2. `_Handwriting (from Maximlaptop).i` --> `_Handwriting.i`
 
 If you run into this problem and just want a binary, here is the [Windows, .NET 4 binary](https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe).
