@@ -8,9 +8,11 @@ categories:
 
 Testing post. **Hi**.
 
-	$(function() {
-		alert('Test');
-	});
+```
+$(function() {
+	alert('Test');
+});
+```
 
 To run something, execute `test()`.
 
