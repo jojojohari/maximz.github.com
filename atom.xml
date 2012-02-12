@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Maxim Zaslavsky - Blog]]></title>
+  <title><![CDATA[Absolutely To Nothing]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-02-12T01:34:02-08:00</updated>
+  <updated>2012-02-12T01:43:25-08:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -51,27 +51,6 @@
 
 
 <p>If you run into this problem and just want a binary, here is the <a href="https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe">Windows, .NET 4 binary</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Test post!]]></title>
-    <link href="http://maximz.github.com/blog/2012/02/11/test-post/"/>
-    <updated>2012-02-11T21:57:00-08:00</updated>
-    <id>http://maximz.github.com/blog/2012/02/11/test-post</id>
-    <content type="html"><![CDATA[<p>Testing post. <strong>Hi</strong>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$(function() {
-</span><span class='line'>  alert('Test');
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To run something, execute <code>test()</code>.</p>
-
-<p><a href="http://github.com">Github</a></p>
 ]]></content>
   </entry>
   
