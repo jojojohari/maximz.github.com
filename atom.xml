@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Maxim Zaslavsky - Blog]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-02-11T15:06:44-08:00</updated>
+  <updated>2012-02-11T22:00:40-08:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Maxim Zaslavsky]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Test post!]]></title>
+    <link href="http://maximz.github.com/blog/2012/02/11/test-post/"/>
+    <updated>2012-02-11T21:57:00-08:00</updated>
+    <id>http://maximz.github.com/blog/2012/02/11/test-post</id>
+    <content type="html"><![CDATA[<p>Testing post. <strong>Hi</strong>.</p>
+
+<pre><code>$(function() {
+    alert('Test');
+});
+</code></pre>
+
+<p>To run something, execute <code>test()</code>.</p>
+
+<p><a href="http://github.com">Github</a></p>
+]]></content>
+  </entry>
   
 </feed>
