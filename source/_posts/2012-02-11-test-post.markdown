@@ -3,6 +3,7 @@ layout: post
 title: "Test post!"
 date: 2012-02-11 21:57
 comments: true
+published: false
 categories: 
 ---
 
