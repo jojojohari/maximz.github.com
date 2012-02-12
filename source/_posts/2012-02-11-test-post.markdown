@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Test post!"
+date: 2012-02-11 21:57
+comments: true
+categories: 
+---
+
+Testing post. **Hi**.
+
+	$(function() {
+		alert('Test');
+	});
+
+To run something, execute `test()`.
+
+[Github](http://github.com)
