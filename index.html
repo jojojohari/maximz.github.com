@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Absolutely To Nothing</title>
+  <meta name="author" content="Maxim Zaslavsky">
+
+  
+  <meta name="description" content="Intro to SugarSync (SS) Ever since I started using SugarSync, I&#8217;ve loved the app. Until now, it&#8217;s proven to be easy to use and abnormally &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://maximz.github.com">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Absolutely To Nothing" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Absolutely To Nothing</a></h1>
+  
+    <h2>Some thoughts on programming and science.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:maximz.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/">Recovering From SugarSync Merge Failures Over Source Control Repositories</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-12T01:11:00-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Intro to SugarSync (SS)</h2>
+
+<p>Ever since I started using <strong><a href="http://sugarsync.com">SugarSync</a></strong>, I&#8217;ve loved the app. Until now, it&#8217;s proven to be easy to use and abnormally straightforward.</p>
+
+<p>However, this weekend, SugarSync Manager decided to start crashing upon each load, making it completely unusable. I ordinarilly would have attempted to find and fix the cause of these crashes, but since the app was due for an update anyway, as I had neglected to run SugarSync (and sync latest changes) for a while, I decided to reinstall the Manager completely.</p>
+
+<h2>Problem</h2>
+
+<p>That turned out to be a bad decision. For some reason, I wasn&#8217;t able to explain to SugarSync that the original device that had synced to my account is the same as the current device, so it treats them as different entities with the same device name. Instead, I decided to try SugarSync&#8217;s <em>merge</em> functionality - as the people at SS explain it, it looks for differences between the older (in this case) version synced and the newer (in this case) version available on the current device.</p>
+
+<p>I did not expect this to be a problem, but SugarSync decided to start merging within the <code>.hg</code> and <code>.git</code> directories of my hg and git repositories. Thus, old dirstates and other key files were transformed to the version they had been at an earlier time.</p>
+
+<h2>Solution</h2>
+
+<p>My folder structure looked someting like this for &#8220;infected&#8221; files:</p>
+
+<ul>
+<li><code>_Handwriting (from Maxim-laptop).i</code> // this is the newest one</li>
+<li><code>_Handwriting.i</code> // this is the older one, but takes the place of the latest one.</li>
+</ul>
+
+
+<p>After countless bouts with HG in order to fix this via the HG tools, I decided to instead <strong><a href="https://github.com/maximz/sugarsyncfilefix">write a simple program</a></strong> that renames files in order to enable this to work.</p>
+
+<p>File changes:</p>
+
+<ol>
+<li><code>_Handwriting.i</code> &#8211;> <code>_Handwriting.i.old</code></li>
+<li><code>_Handwriting (from Maximlaptop).i</code> &#8211;> <code>_Handwriting.i</code></li>
+</ol>
+
+
+<p>If you run into this problem and just want a binary, here is the <a href="https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe">Windows, .NET 4 binary</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/">Recovering from SugarSync merge failures over source control repositories</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("zazius", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/zazius" class="twitter-follow-button" data-show-count="false">Follow @zazius</a>
+  
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/100739369300128492000?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Maxim Zaslavsky -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'maximz';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
