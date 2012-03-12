@@ -4,7 +4,7 @@
   <title><![CDATA[Absolutely To Nothing]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-03-12T01:59:45-07:00</updated>
+  <updated>2012-03-12T02:02:32-07:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Starting fresh]]></title>
+    <link href="http://maximz.github.com/blog/2012/03/12/starting-fresh/"/>
+    <updated>2012-03-12T00:00:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2012/03/12/starting-fresh</id>
+    <content type="html"><![CDATA[<p>My <a href="http://blog.maximzaslavsky.com">previous blog</a> is a jumble of old posts and ideas in desparate need of abandonement. So I&#8217;m finally moving to Jekyll (specifically Octopress).</p>
+
+<p>And I&#8217;m starting fresh. Completely new content, except for a few old posts that I revamped for this new blog.</p>
+
+<p>Let&#8217;s see how this goes. Welcome!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Recovering from SugarSync merge failures over source control repositories]]></title>
@@ -51,6 +64,98 @@
 
 
 <p>If you run into this problem and just want a binary, here is the <a href="https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe">Windows, .NET 4 binary</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Facebook's New Niche]]></title>
+    <link href="http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche/"/>
+    <updated>2011-09-24T00:00:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche</id>
+    <content type="html"><![CDATA[<p><em>Note: This is a repost of <a href="http://blog.maximzaslavsky.com/2011/09/facebooks-new-niche/">a post</a> from my old blog. It was originally published on September 24, 2011.</em></p>
+
+<p>In the midst of Facebook’s widly-discussed UI changes this week, one new feature fell through the cracks: the Timeline (currently only in developer beta, but you can be involved by <a href="http://techcrunch.com/2011/09/22/how-to-enable-facebook-timeline/">following these steps</a>).</p>
+
+<p><img src="http://i.imgur.com/w1or6.jpg" alt="Timeline" /></p>
+
+<p>This new Timeline feature solves a major UI problem that Facebook has been plagued by – the disorganization of each user’s content. The previously-separate Wall, Info, Photos, and so on have all been combined into a single, centralized profile page. But the timeline goes beyond that. In displaying your entire Facebook activity over time, it also allows you to add “life events”, from achievements to medical events to anything, really.</p>
+
+<p>By now, you’ve probably realized that these features don’t just show your entire Facebook activity – they’re meant to show your entire life.</p>
+
+<p>(Note: Sure, this situation is interesting in terms of privacy, but let’s just assume that people will be willing to share the events of their lives. So far, they have been pretty willing.)</p>
+
+<p>The main thing going for Facebook here is how much information they have. Besides sharing information, users give Facebook a ton of personal data. They’ve finally started using this data for more than just targeted advertising; for example, the timeline has a map page that tracks your activity, intersecting place information with status updates and more.</p>
+
+<p><img src="http://i.imgur.com/oGjVZ.png" alt="Map" /></p>
+
+<p><strong>Life-tracking might be Facebook’s niche.</strong> Google+’s focus is sharing, not identity creation. In terms of user identity, G+ certainly aims to consolidate your web activity under one profile. But Facebook doesn’t have the web – instead, they combine activity on their site (status updates, photos, places, and now app activity via Open Graph) with the life events you input. In a way, Google+ and Facebook aren’t currently competing in that realm, although Google might certainly try to follow Facebook. If anyone could do something like that best, it would be Google, specifically because of how much we rely on their services in our lives and how much information we have about ourselves on the web.</p>
+
+<p>Hopefully, this timeline feature won’t be treated as just another annoying Facebook redesign. It has the potential to change the way we approach the Internet and collect our online identities. Facebook has been making dumb moves lately – but this might be <strong>their killer app</strong>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Windows N and KN Versions]]></title>
+    <link href="http://maximz.github.com/blog/2010/02/13/windows-7-versions/"/>
+    <updated>2010-02-13T00:00:00-08:00</updated>
+    <id>http://maximz.github.com/blog/2010/02/13/windows-7-versions</id>
+    <content type="html"><![CDATA[<p><em>Note: This is a revamp of <a href="http://blog.maximzaslavsky.com/2010/02/windows-7-n-and-kn-versions/">a post</a> from my old blog.  It was originally published on February 13, 2010.</em></p>
+
+<p>For MSDN users who are confused about the N and KN versions of Windows that are available, since there is very little documentation about this, those are distributions specifically for Europe.</p>
+
+<p>As I understand, the EU requires Microsoft to release such versions. They&#8217;re identical to standard versions with only one difference: in Windows 7, for example, those versions have no media players/apps from Microsoft pre-installed.</p>
+
+<p><strong>No Windows Media Player. No Windows Media Center.</strong></p>
+
+<p>But if you want these features in your N/KN install, you can download the <a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=19289">Windows Media Format Feature Pack</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dead-Simple Ethernet Bridge/Hub]]></title>
+    <link href="http://maximz.github.com/blog/2009/12/27/using-netgear-as-ethernet-bridge/"/>
+    <updated>2009-12-27T00:00:00-08:00</updated>
+    <id>http://maximz.github.com/blog/2009/12/27/using-netgear-as-ethernet-bridge</id>
+    <content type="html"><![CDATA[<p><em>Note: This is a revamp of <a href="http://blog.maximzaslavsky.com/2009/12/using-a-netgear-wgt224-as-ethernet-bridge-hub/">a post</a> from my old blog. It was originally published on December 27, 2009.</em></p>
+
+<p>Upon moving into my new office, I hit an instant dilemna: there was only one Ethernet port and I had multiple Ethernet devices.</p>
+
+<p>Crisis.</p>
+
+<p>As it turns out, it&#8217;s really easy to split an Ethernet connection. All you need is an old router to set up as a bridge. I used a Netgear WGT624:</p>
+
+<p><img src="http://i.imgur.com/LTCij.jpg" alt="Netgear WGT624 diagram" /></p>
+
+<ol>
+<li><p>Connect an Ethernet cable between the Ethernet port and the WAN port of your router.</p></li>
+<li><p>Connect Ethernet cables between your network devices and LAN ports on the router.</p></li>
+<li><p>On a connected device, browse to your router&#8217;s setup page; in my case, it was <code>192.168.1.1</code>. Login.</p></li>
+<li><p>Disable DHCP on your router. On the WGT624, you go to &#8220;LAN IP Setup&#8221; under &#8220;Advanced&#8221; in the left navigation frame, then uncheck the checkbox marked &#8220;Use Router as DHCP Server&#8221; and click Apply.</p></li>
+<li><p>Decide on whether you want the router to be a wireless hub, too, and enable/disable wireless accordingly. To configure this on the WGT624, click &#8220;Wireless Settings&#8221; under &#8220;Advanced&#8221; in the left navigation frame, then check or uncheck the checkbox marked &#8220;Enable Wireless Router Radio&#8221; and hit Apply.</p></li>
+<li><p>Remove the Ethernet cable inserted into the WAN port and insert into into another LAN port, instead.</p></li>
+</ol>
+
+
+<p>That did the trick for me. You might encounter a warning notice from your main router (not the bridge) when you first try this setup.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Adding a favicon to your Wordpress.com blog]]></title>
+    <link href="http://maximz.github.com/blog/2009/06/01/favicon-wordpress/"/>
+    <updated>2009-06-01T00:00:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2009/06/01/favicon-wordpress</id>
+    <content type="html"><![CDATA[<p><em>Note: This is a revamp of [a post]http://blog.maximzaslavsky.com/2009/06/adding-a-favicon-to-your-wordpress-com-blog/) from my old blog. It was originally published on June 1, 2009.</em></p>
+
+<p>The documentation for adding favicons to <a href="http://wordpress.com">Wordpress.com</a> blogs is a bit confusing. The right way to do it is to create a <strong>Blavatar</strong>: Blog + Avatar.</p>
+
+<p>A Blavatar is an uploaded picture that functions as your avatar when you comment on other blogs or when they link to your blog, and as your favicon.</p>
+
+<p>To get started, open the Settings &#8211;> General page of a Wordpress.com blog dashboard. Upload a jpg or png to the &#8220;Blog Picture&#8221; panel, and then Wordpress.com will help you crop it to for it to be a valid favicon.</p>
+
+<p>I recommend uploading a large, square Blavatar that Wordpress will then scale down to the proper favicon size, so that other Blavatar usage is at a good resolution.</p>
+
+<p><em>This applies only to Wordpress.com blogs. For self-hosted <a href="http://wordpress.org">Wordpress.org</a> installations, you can either use one of the many available favicon plugins, or you can manually create and upload a favicon to your root directory.</em></p>
 ]]></content>
   </entry>
   

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Recovering from SugarSync merge failures over source control repositories - Absolutely To Nothing</title>
+  <title>Facebook's New Niche - Absolutely To Nothing</title>
   <meta name="author" content="Maxim Zaslavsky">
 
   
-  <meta name="description" content="Intro to SugarSync (SS) Ever since I started using SugarSync, I&#8217;ve loved the app. Until now, it&#8217;s proven to be easy to use and abnormally &hellip;">
+  <meta name="description" content="Note: This is a repost of a post from my old blog. It was originally published on September 24, 2011. In the midst of Facebook’s widly-discussed UI &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories">
+  <link rel="canonical" href="http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Recovering From SugarSync Merge Failures Over Source Control Repositories</h1>
+      <h1 class="entry-title">Facebook's New Niche</h1>
     
     
       <p class="meta">
@@ -95,7 +95,7 @@
   
 
 
-<time datetime="2012-02-12T01:11:00-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2012</time>
+<time datetime="2011-09-24T00:00:00-07:00" pubdate data-updated="true">Sep 24<span>th</span>, 2011</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -104,39 +104,25 @@
   </header>
 
 
-<div class="entry-content"><h2>Intro to SugarSync (SS)</h2>
+<div class="entry-content"><p><em>Note: This is a repost of <a href="http://blog.maximzaslavsky.com/2011/09/facebooks-new-niche/">a post</a> from my old blog. It was originally published on September 24, 2011.</em></p>
 
-<p>Ever since I started using <strong><a href="http://sugarsync.com">SugarSync</a></strong>, I&#8217;ve loved the app. Until now, it&#8217;s proven to be easy to use and abnormally straightforward.</p>
+<p>In the midst of Facebook’s widly-discussed UI changes this week, one new feature fell through the cracks: the Timeline (currently only in developer beta, but you can be involved by <a href="http://techcrunch.com/2011/09/22/how-to-enable-facebook-timeline/">following these steps</a>).</p>
 
-<p>However, this weekend, SugarSync Manager decided to start crashing upon each load, making it completely unusable. I ordinarilly would have attempted to find and fix the cause of these crashes, but since the app was due for an update anyway, as I had neglected to run SugarSync (and sync latest changes) for a while, I decided to reinstall the Manager completely.</p>
+<p><img src="http://i.imgur.com/w1or6.jpg" alt="Timeline" /></p>
 
-<h2>Problem</h2>
+<p>This new Timeline feature solves a major UI problem that Facebook has been plagued by – the disorganization of each user’s content. The previously-separate Wall, Info, Photos, and so on have all been combined into a single, centralized profile page. But the timeline goes beyond that. In displaying your entire Facebook activity over time, it also allows you to add “life events”, from achievements to medical events to anything, really.</p>
 
-<p>That turned out to be a bad decision. For some reason, I wasn&#8217;t able to explain to SugarSync that the original device that had synced to my account is the same as the current device, so it treats them as different entities with the same device name. Instead, I decided to try SugarSync&#8217;s <em>merge</em> functionality - as the people at SS explain it, it looks for differences between the older (in this case) version synced and the newer (in this case) version available on the current device.</p>
+<p>By now, you’ve probably realized that these features don’t just show your entire Facebook activity – they’re meant to show your entire life.</p>
 
-<p>I did not expect this to be a problem, but SugarSync decided to start merging within the <code>.hg</code> and <code>.git</code> directories of my hg and git repositories. Thus, old dirstates and other key files were transformed to the version they had been at an earlier time.</p>
+<p>(Note: Sure, this situation is interesting in terms of privacy, but let’s just assume that people will be willing to share the events of their lives. So far, they have been pretty willing.)</p>
 
-<h2>Solution</h2>
+<p>The main thing going for Facebook here is how much information they have. Besides sharing information, users give Facebook a ton of personal data. They’ve finally started using this data for more than just targeted advertising; for example, the timeline has a map page that tracks your activity, intersecting place information with status updates and more.</p>
 
-<p>My folder structure looked someting like this for &#8220;infected&#8221; files:</p>
+<p><img src="http://i.imgur.com/oGjVZ.png" alt="Map" /></p>
 
-<ul>
-<li><code>_Handwriting (from Maxim-laptop).i</code> // this is the newest one</li>
-<li><code>_Handwriting.i</code> // this is the older one, but takes the place of the latest one.</li>
-</ul>
+<p><strong>Life-tracking might be Facebook’s niche.</strong> Google+’s focus is sharing, not identity creation. In terms of user identity, G+ certainly aims to consolidate your web activity under one profile. But Facebook doesn’t have the web – instead, they combine activity on their site (status updates, photos, places, and now app activity via Open Graph) with the life events you input. In a way, Google+ and Facebook aren’t currently competing in that realm, although Google might certainly try to follow Facebook. If anyone could do something like that best, it would be Google, specifically because of how much we rely on their services in our lives and how much information we have about ourselves on the web.</p>
 
-
-<p>After countless bouts with HG in order to fix this via the HG tools, I decided to instead <strong><a href="https://github.com/maximz/sugarsyncfilefix">write a simple program</a></strong> that renames files in order to enable this to work.</p>
-
-<p>File changes:</p>
-
-<ol>
-<li><code>_Handwriting.i</code> &#8211;> <code>_Handwriting.i.old</code></li>
-<li><code>_Handwriting (from Maximlaptop).i</code> &#8211;> <code>_Handwriting.i</code></li>
-</ol>
-
-
-<p>If you run into this problem and just want a binary, here is the <a href="https://github.com/maximz/sugarsyncfilefix/raw/master/SugarSyncFileFix/bin/Release/SugarSyncFileFix.exe">Windows, .NET 4 binary</a>.</p>
+<p>Hopefully, this timeline feature won’t be treated as just another annoying Facebook redesign. It has the potential to change the way we approach the Internet and collect our online identities. Facebook has been making dumb moves lately – but this might be <strong>their killer app</strong>.</p>
 </div>
 
 
@@ -159,12 +145,12 @@
   
 
 
-<time datetime="2012-02-12T01:11:00-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2012</time>
+<time datetime="2011-09-24T00:00:00-07:00" pubdate data-updated="true">Sep 24<span>th</span>, 2011</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/code/'>code</a>
+    <a class='category' href='/blog/categories/web/'>web</a>
   
 </span>
 
@@ -173,7 +159,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/" data-via="zazius" data-counturl="http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche/" data-via="zazius" data-counturl="http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -186,10 +172,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/09/24/facebook-timeline-niche/" title="Previous Post: Facebook's New Niche">&laquo; Facebook's New Niche</a>
+        <a class="basic-alignment left" href="/blog/2010/02/13/windows-7-versions/" title="Previous Post: Windows N and KN Versions">&laquo; Windows N and KN Versions</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/03/12/starting-fresh/" title="Next Post: Starting fresh">Starting fresh &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/" title="Next Post: Recovering from SugarSync merge failures over source control repositories">Recovering from SugarSync merge failures over source control repositories &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +267,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/';
-        var disqus_url = 'http://maximz.github.com/blog/2012/02/12/recovering-from-sugarsync-merge-failures-over-source-control-repositories/';
+        var disqus_identifier = 'http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche/';
+        var disqus_url = 'http://maximz.github.com/blog/2011/09/24/facebook-timeline-niche/';
         var disqus_script = 'embed.js';
       
     (function () {
