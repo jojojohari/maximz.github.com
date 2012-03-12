@@ -4,7 +4,7 @@
   <title><![CDATA[Category: code | Absolutely To Nothing]]></title>
   <link href="http://maximz.github.com/blog/categories/code/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-03-12T02:02:32-07:00</updated>
+  <updated>2012-03-12T02:07:35-07:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -55,11 +55,34 @@
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[C#: handling cookies in a series of HttpWebRequest and HttpWebResponse sessions]]></title>
+    <link href="http://maximz.github.com/blog/2009/06/28/csharp-cookies/"/>
+    <updated>2009-06-28T00:00:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2009/06/28/csharp-cookies</id>
+    <content type="html"><![CDATA[<p><em>Note: This is a revamp of <a href="http://blog.maximzaslavsky.com/2009/06/c-handling-cookies-in-a-series-of-httpwebrequest-and-httpwebresponse-sessions/">a post</a> from my old blog.  It was originally published on June 28, 2009.</em></p>
+
+<p>A while back, I was working on "wrapping" and extracting data from an online database UI. In order to retrieve data, a user would submit a series of HTML forms, view the resulting map, and then see a popup with a malformed-HTML table of all the points displayed on the map. My goal was to write some C# that would submit these painful forms in various desired combinations and retrieve and parse the points.</p>
+
+<p>To add insult to injury, a Fiddler run revealed that whoever wrote the UI decided to not just maintain session state, but also <em>transfer raw data</em> between the different UI pages using cookies and HTTP referrers with querystrings ... naturally. :'(</p>
+
+<p>Thankfully, C# makes this really easy to solve - you just create a cookie "jar" that carries over from HTTP session to another:</p>
+
+<p><code>
+var cookieJar = new CookieContainer(); // initialize cookieJar
+var request=(HttpWebRequest) WebRequest.Create("http://google.com"); // create your HttpWebRequests
+request.CookieContainer = cookieJar; // for each HttpWebRequest you make, add cookieJar
+</code></p>
+
+<p>Use the last line to apply <code>cookieJar</code> to each request and you're set!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Adding a favicon to your Wordpress.com blog]]></title>
     <link href="http://maximz.github.com/blog/2009/06/01/favicon-wordpress/"/>
     <updated>2009-06-01T00:00:00-07:00</updated>
     <id>http://maximz.github.com/blog/2009/06/01/favicon-wordpress</id>
-    <content type="html"><![CDATA[<p><em>Note: This is a revamp of [a post]http://blog.maximzaslavsky.com/2009/06/adding-a-favicon-to-your-wordpress-com-blog/) from my old blog. It was originally published on June 1, 2009.</em></p>
+    <content type="html"><![CDATA[<p><em>Note: This is a revamp of <a href="http://blog.maximzaslavsky.com/2009/06/adding-a-favicon-to-your-wordpress-com-blog/">a post</a> from my old blog. It was originally published on June 1, 2009.</em></p>
 
 <p>The documentation for adding favicons to <a href="http://wordpress.com">Wordpress.com</a> blogs is a bit confusing. The right way to do it is to create a <strong>Blavatar</strong>: Blog + Avatar.</p>
 
