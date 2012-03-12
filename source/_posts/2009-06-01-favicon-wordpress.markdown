@@ -6,7 +6,7 @@ comments: true
 categories: code
 ---
 
-*Note: This is a revamp of [a post]http://blog.maximzaslavsky.com/2009/06/adding-a-favicon-to-your-wordpress-com-blog/) from my old blog. It was originally published on June 1, 2009.*
+*Note: This is a revamp of [a post](http://blog.maximzaslavsky.com/2009/06/adding-a-favicon-to-your-wordpress-com-blog/) from my old blog. It was originally published on June 1, 2009.*
 
 The documentation for adding favicons to [Wordpress.com](http://wordpress.com) blogs is a bit confusing. The right way to do it is to create a **Blavatar**: Blog + Avatar.
 
