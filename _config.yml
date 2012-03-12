@@ -4,10 +4,10 @@
 
 url: http://maximz.github.com
 title: Absolutely To Nothing
-subtitle: Some thoughts on programming and science.
+subtitle: Some thoughts on programming, science, and technology at large.
 author: Maxim Zaslavsky
 simple_search: http://google.com/search
-description:
+description: Absolutely To Nothing, a blog by Maxim Zaslavsky about programming, science, and technology at large.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -33,6 +33,7 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
+category_title_prefix: "Category: "
 markdown: rdiscount
 pygments: false # default python pygments have been replaced by pygments.rb
 
@@ -93,7 +94,7 @@ disqus_short_name: maximz
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-16705395-1
 
 # Facebook Like
 facebook_like: true

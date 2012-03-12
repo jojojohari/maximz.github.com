@@ -3,7 +3,7 @@ layout: post
 title: "Recovering from SugarSync merge failures over source control repositories"
 date: 2012-02-12 01:11
 comments: true
-categories: 
+categories: code
 ---
 
 Intro to SugarSync (SS)
