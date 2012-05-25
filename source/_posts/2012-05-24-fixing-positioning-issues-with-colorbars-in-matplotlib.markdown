@@ -4,7 +4,7 @@ title: "Positioning issues with Colorbars in Matplotlib"
 date: 2012-05-26 01:36
 comments: true
 published: false
-categories: 
+categories: code
 ---
 
 I ran into a problem with some Matplotlib code the other day: clearing a figure that previously held a Colorbar would still keep empty space in the location of the now-removed Colorbar.
