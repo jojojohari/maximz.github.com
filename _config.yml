@@ -98,3 +98,6 @@ google_analytics_tracking_id: UA-16705395-1
 
 # Facebook Like
 facebook_like: true
+
+# Slash theme: Facebook user
+facebook_user: maximz
