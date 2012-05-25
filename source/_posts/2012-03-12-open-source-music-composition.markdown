@@ -26,16 +26,24 @@ Tthe problem we're facing is two-fold:
 
 But what if people could work together to write music? 
 
-**Many parts of composing are repetitive tasks, so streamlined?**
+Then the previous paradigm of private composition would break. Ideas would be generated together and combined, for higher creative potential. The repetive and time-consuming notation tasks of composition would be streamlined, for a faster process, which will make composition much more available and entertaining to potential composers. The final product would be published openly, for freedom of sharing and for the potential of remixing, arranging, adaptation, and external improvement.
 
-# Finding an open-source solution
+What if there were a team like Code52, starting and working on a new open source composition project each week?
+
+# Finding an open source solution
+
+Such a model would be very different from the technology we have today. Ideally, we could have a Github-esque environment. A composer creates a repository for their new project and starts notating a composition. They push the repository online and other users fork it, make their own changes, and submit pull requests that the original composer then merges into the main repository. Pretty similar to an open source code workflow with Git.
+
+In terms of licensing, porting a Creative Commons license to the music field would fulfill these needs.
+
+But what format would you store music notation in? 
+
+Open format: MusicXML is proprietary, maybe create something very open called MML or MusicML (Music Markup Language)? There should then be converters from other proprietary formats (e.g. Sibelius files, Finale files, the aforementioned MusicXML, etc.)
 
 
+# Issues
 
-
-# Further technicalities that need to be resolved
-
-* How do you manage idea and style differentiation?
+There are more fundamental technicalities to be resolved. Assuming we build a suitable open format for music notation, we need to find a way to manage idea and style differentiation. As the purpose of individual components of music is impossible to explain objectively to someone else, group collaboration will be difficult. But small groups of writers have managed to solve that problem, so maybe larger groups will, too.
 
 # Taking this further
 
