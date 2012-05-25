@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: meta - Absolutely To Nothing</title>
+  <title>Local Git sharing with a virtual machine - Absolutely To Nothing</title>
   <meta name="author" content="Maxim Zaslavsky">
 
   
-  <meta name="description" content="Category: meta">
+  <meta name="description" content="My recent projects have involved work between two OSes. I run Windows as my host OS and virtualize Ubuntu, and in order to share work efficiently &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://maximz.github.comblog/categories/meta">
+  <link rel="canonical" href="http://maximz.github.com/blog/2012/05/24/local-git-sharing-with-a-virtual-machine">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,36 +75,127 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Meta</h1>
+    
+      <h1 class="entry-title">Local Git Sharing With a Virtual Machine</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-24T21:35:00-07:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>My recent projects have involved work between two OSes. I run Windows as my host OS and virtualize Ubuntu, and in order to share work efficiently between the two, I&#8217;ve been using a local bare Git repository in a shared folder.</p>
 
-  
-  <h2>2012</h2>
+<p>It&#8217;s quite simple to set up:</p>
 
-<article>
-  
-<h1><a href="/blog/2012/03/12/starting-fresh/">Starting fresh</a></h1>
-<time datetime="2012-03-12T00:00:00-07:00" pubdate><span class='month'>Mar</span> <span class='day'>12</span> <span class='year'>2012</span></time>
+<p>First, make sure that you have a shared folder that is available to both your host and your guest OS. I personally use VirtualBox&#8217;s Guest Additions and its built-in Shared Folders functionality, so I mount my share using the following command, where &#8220;share&#8221; is the name of the shared folder I have defined in VirtualBox, and &#8220;~/host&#8221; is the path to which I am mounting:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/meta/'>meta</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo mount -t vboxsf share ~/host</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Now, initialize a bare Git repository in the shared folder:</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd "~/host"
+</span><span class='line'>mkdir myrepo
+</span><span class='line'>cd myrepo
+</span><span class='line'>git init --bare</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Almost done. Return to your original repository and add to its remotes:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add local "~/host/myrepo"
+</span><span class='line'>git push local master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, clone that repository from your other OS:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone "C:\vmshared\myrepo"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, you can <code>git push</code> and <code>git pull</code> between your repository on the host OS and your repository on the guest OS to synchronize changes.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Maxim Zaslavsky</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-24T21:35:00-07:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maximz.github.com/blog/2012/05/24/local-git-sharing-with-a-virtual-machine/" data-via="zazius" data-counturl="http://maximz.github.com/blog/2012/05/24/local-git-sharing-with-a-virtual-machine/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/24/extending-partitions-in-virtualbox-vdis/" title="Previous Post: Extending partitions in VirtualBox VDIs">&laquo; Extending partitions in VirtualBox VDIs</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -185,7 +276,10 @@
       var disqus_shortname = 'maximz';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://maximz.github.com/blog/2012/05/24/local-git-sharing-with-a-virtual-machine/';
+        var disqus_url = 'http://maximz.github.com/blog/2012/05/24/local-git-sharing-with-a-virtual-machine/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
