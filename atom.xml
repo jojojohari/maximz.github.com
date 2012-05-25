@@ -4,7 +4,7 @@
   <title><![CDATA[Absolutely To Nothing]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-05-24T22:00:34-07:00</updated>
+  <updated>2012-05-24T22:02:10-07:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -55,24 +55,6 @@
 
 
 <p>Now, you can <code>git push</code> and <code>git pull</code> between your repository on the host OS and your repository on the guest OS to synchronize changes.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Extending partitions in VirtualBox VDIs]]></title>
-    <link href="http://maximz.github.com/blog/2012/05/24/extending-partitions-in-virtualbox-vdis/"/>
-    <updated>2012-05-24T21:34:00-07:00</updated>
-    <id>http://maximz.github.com/blog/2012/05/24/extending-partitions-in-virtualbox-vdis</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing positioning issues with colorbars in Matplotlib]]></title>
-    <link href="http://maximz.github.com/blog/2012/05/24/fixing-positioning-issues-with-colorbars-in-matplotlib/"/>
-    <updated>2012-05-24T21:32:00-07:00</updated>
-    <id>http://maximz.github.com/blog/2012/05/24/fixing-positioning-issues-with-colorbars-in-matplotlib</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
