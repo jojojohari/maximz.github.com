@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Windows N and KN Versions - Absolutely To Nothing</title>
+  <title>Extending and resizing partitions in VirtualBox VDIs - Absolutely To Nothing</title>
   <meta name="author" content="Maxim Zaslavsky">
 
   
-  <meta name="description" content="Note: This is a revamp of a post from my old blog. It was originally published on February 13, 2010. For MSDN users who are confused about the N and &hellip;">
+  <meta name="description" content="Resizing partitions in VirtualBox virtual disk images can be painful - in some cases, they don&#8217;t work as expected. For instance, I had a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://maximz.github.com/blog/2010/02/13/windows-7-versions">
+  <link rel="canonical" href="http://maximz.github.com/blog/2012/05/25/extending-partitions-in-virtualbox-vdis">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Windows N and KN Versions</h1>
+      <h1 class="entry-title">Extending and Resizing Partitions in VirtualBox VDIs</h1>
     
     
       <p class="meta">
@@ -95,7 +95,7 @@
   
 
 
-<time datetime="2010-02-13T00:00:00-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2010</time>
+<time datetime="2012-05-25T00:37:00-07:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -104,15 +104,21 @@
   </header>
 
 
-<div class="entry-content"><p><em>Note: This is a revamp of <a href="http://blog.maximzaslavsky.com/2010/02/windows-7-n-and-kn-versions/">a post</a> from my old blog.  It was originally published on February 13, 2010.</em></p>
+<div class="entry-content"><p>Resizing partitions in VirtualBox virtual disk images can be painful - in some cases, they don&#8217;t work as expected. For instance, I had a working Ubuntu VM where the partition on which the OS was installed reached its size limit. Here&#8217;s what I did:</p>
 
-<p>For MSDN users who are confused about the N and KN versions of Windows that are available, since there is very little documentation about this, those are distributions specifically for Europe.</p>
+<ol>
+<li><p>If there is not enough unallocated space in the VDI, download the <a href="https://forums.virtualbox.org/viewtopic.php?t=22422">CloneVDI tool</a> and make a cloned version of your VDI with as much more space as is needed.</p></li>
+<li><p>Download the <a href="http://gparted.sourceforge.net/">GParted live CD</a> and boot into GParted from your VM.</p></li>
+<li><p>Try to do an in-place resize of the partition you want to extend into the area of unallocated space - if that works, you&#8217;re done!</p></li>
+<li><p>If that doesn&#8217;t work, delete your linux-swap partition, and move your extended partition to the left of the available space.</p></li>
+<li><p>Move your main partition to the left, too, and grow it to the desired size to the right.</p></li>
+<li><p>Create new linux-swap logical partition to replace the one you deleted earlier.</p></li>
+</ol>
 
-<p>As I understand, the EU requires Microsoft to release such versions. They&#8217;re identical to standard versions with only one difference: in Windows 7, for example, those versions have no media players/apps from Microsoft pre-installed.</p>
 
-<p><strong>No Windows Media Player. No Windows Media Center.</strong></p>
+<p>The key to this procedure is moving the partitions left. Without doing that, you won&#8217;t be able to resize the main partition.</p>
 
-<p>But if you want these features in your N/KN install, you can download the <a href="http://www.microsoft.com/download/en/details.aspx?displaylang=en&amp;id=19289">Windows Media Format Feature Pack</a>.</p>
+<p>An alternative, but more risky procedure is to expand your VDI with CloneVDI so that you can create an entire new parition with the desired size. Then, copy the contents from your original partition to the new old in GParted and set the &#8220;boot&#8221; mark to the new one. When I tried that, however, I lost my master boot record in the process and had to reinstall my Grub bootloader and configure it to mount Linux, which is an ugly process (I might write up the details in another post).</p>
 </div>
 
 
@@ -135,7 +141,7 @@
   
 
 
-<time datetime="2010-02-13T00:00:00-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2010</time>
+<time datetime="2012-05-25T00:37:00-07:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
       
 
 
@@ -143,7 +149,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maximz.github.com/blog/2010/02/13/windows-7-versions/" data-via="zazius" data-counturl="http://maximz.github.com/blog/2010/02/13/windows-7-versions/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://maximz.github.com/blog/2012/05/25/extending-partitions-in-virtualbox-vdis/" data-via="zazius" data-counturl="http://maximz.github.com/blog/2012/05/25/extending-partitions-in-virtualbox-vdis/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -156,10 +162,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2009/12/27/using-netgear-as-ethernet-bridge/" title="Previous Post: Dead-Simple Ethernet Bridge/Hub">&laquo; Dead-Simple Ethernet Bridge/Hub</a>
+        <a class="basic-alignment left" href="/blog/2012/05/24/local-git-sharing-with-a-virtual-machine/" title="Previous Post: Local Git sharing with a virtual machine">&laquo; Local Git sharing with a virtual machine</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/09/24/facebook-timeline-niche/" title="Next Post: Facebook's New Niche">Facebook's New Niche &raquo;</a>
       
     </p>
   </footer>
@@ -251,8 +255,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://maximz.github.com/blog/2010/02/13/windows-7-versions/';
-        var disqus_url = 'http://maximz.github.com/blog/2010/02/13/windows-7-versions/';
+        var disqus_identifier = 'http://maximz.github.com/blog/2012/05/25/extending-partitions-in-virtualbox-vdis/';
+        var disqus_url = 'http://maximz.github.com/blog/2012/05/25/extending-partitions-in-virtualbox-vdis/';
         var disqus_script = 'embed.js';
       
     (function () {
