@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://maximz.github.com
-title: Absolutely To Nothing
-subtitle: Some thoughts on programming, science, and technology at large.
+title: Maxim Zaslavsky
+subtitle: Some thoughts on programming, science, and technology.
 author: Maxim Zaslavsky
 simple_search: http://google.com/search
-description: Absolutely To Nothing, a blog by Maxim Zaslavsky about programming, science, and technology at large.
+description: A blog by Maxim Zaslavsky about programming, science, and technology.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
