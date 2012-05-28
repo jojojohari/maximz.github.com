@@ -3,7 +3,7 @@ layout: post
 title: "Using the source command in bash"
 date: 2012-05-27 00:51
 comments: true
-published: false
+published: true
 categories: 
 ---
 

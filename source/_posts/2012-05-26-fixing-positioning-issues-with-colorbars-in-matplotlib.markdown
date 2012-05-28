@@ -3,7 +3,7 @@ layout: post
 title: "Positioning issues with Colorbars in Matplotlib"
 date: 2012-05-26 01:36
 comments: true
-published: false
+published: true
 categories: code
 ---
 
