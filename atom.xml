@@ -4,7 +4,7 @@
   <title><![CDATA[Maxim Zaslavsky]]></title>
   <link href="http://maximz.github.com/atom.xml" rel="self"/>
   <link href="http://maximz.github.com/"/>
-  <updated>2012-05-25T02:11:54-07:00</updated>
+  <updated>2012-05-28T00:15:56-07:00</updated>
   <id>http://maximz.github.com/</id>
   <author>
     <name><![CDATA[Maxim Zaslavsky]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using the source command in bash]]></title>
+    <link href="http://maximz.github.com/blog/2012/05/27/using-the-source-command-in-bash/"/>
+    <updated>2012-05-27T00:51:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2012/05/27/using-the-source-command-in-bash</id>
+    <content type="html"><![CDATA[<p>A handy command for bash scripts is <code>source</code>:</p>
+
+<blockquote><p><a href="http://ss64.com/bash/period.html">When a script is run using `source&#8217; it runs within the existing shell, any variables created or modified by the script will remain available after the script completes.</a></p></blockquote>
+
+<p>So if you want to execute code that affects your current shell, rather than having it run in its separate subshell, run <code>source ./mycode</code> or <code>. ./mycode</code>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Positioning issues with Colorbars in Matplotlib]]></title>
+    <link href="http://maximz.github.com/blog/2012/05/26/fixing-positioning-issues-with-colorbars-in-matplotlib/"/>
+    <updated>2012-05-26T01:36:00-07:00</updated>
+    <id>http://maximz.github.com/blog/2012/05/26/fixing-positioning-issues-with-colorbars-in-matplotlib</id>
+    <content type="html"><![CDATA[<p>I ran into a problem with some Matplotlib code the other day: clearing a figure that previously held a Colorbar would still keep empty space in the location of the now-removed Colorbar.</p>
+
+<p>In other words, after removing the Colorbar from a figure, the figure would not shift back to its full width. And adding a colorbar afterwards would decrease the width of the figure even further, so the problem would compound.</p>
+
+<p>Thankfully, I happened across <a href="http://stackoverflow.com/a/5265614/130164">a Stack Overflow answer</a> that addresses this problem with the following code:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>self.figure.delaxes(self.figure.axes[1])
+</span><span class='line'>self.figure.subplots_adjust(right=0.90)  #default right padding</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This solution is inherently hacky, but does its job well. If you execute that code after clearing a figure (<code>self.figure.clf()</code>), the figure will shift to the right, returning to its original width before the creation of the Colorbar.</p>
+
+<p>Also, if you are plotting multiple graphs in the same figure, I recommend keeping global handles to the figure, to the current axes, to the current Colorbar (if it exists), and to other graph elements. With that design, updating the figure requires only modification of those handles and a call to <code>draw()</code>, and you can fix the Colorbar positioning problem by checking to see if its handle is defined before you plot a new graph and correspondingly executing the removal code.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Extending and resizing partitions in VirtualBox VDIs]]></title>
